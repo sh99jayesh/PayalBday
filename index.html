@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #0f0f1a;
+    color: #fff;
+    overflow-x: hidden;
+  }
+
+  /* 🌌 cinematic moving background */
+.bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #ff4d6d33, transparent 50%),
+              radial-gradient(circle at bottom, #7b2ff733, transparent 50%),
+              radial-gradient(circle at center, #00c6ff22, transparent 60%);
+  animation: bgMove 12s infinite alternate;
+  z-index: -3;
+}
+
+@keyframes bgMove {
+  from { transform: scale(1); filter: hue-rotate(0deg); }
+  to { transform: scale(1.2); filter: hue-rotate(40deg); }
+}
+  /* ✨ floating particles */
+.particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+
+
+  /* glow background */
+  .bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top, #ff4d6d33, transparent 60%),
+                radial-gradient(circle at bottom, #7b2ff733, transparent 60%);
+    z-index: -1;
+  }
+
+  header {
+    text-align: center;
+    padding: 80px 20px 40px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    margin: 0;
+  }
+
+  .subtitle {
+    color: #cfcfcf;
+    margin-top: 10px;
+  }
+
+  .card {
+    max-width: 800px;
+    margin: 30px auto;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+  }
+
+  .lux-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+
+  button {
+    background: linear-gradient(135deg, #ff4d6d, #7b2ff7);
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: transform 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+  }
+
+  /* slideshow */
+  .slide {
+    display: none;
+    font-size: 18px;
+    color: #ddd;
+  }
+
+  .heart {
+    font-size: 40px;
+    animation: pulse 1.2s infinite;
+  }
+
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+  }
+
+  /* fade animation */
+  .fade {
+    animation: fadeIn 1s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px;
+    color: #aaa;
+    font-size: 12px;
+  }/* 🌌 cinematic moving background */
+.bg {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #ff4d6d33, transparent 50%),
+              radial-gradient(circle at bottom, #7b2ff733, transparent 50%),
+              radial-gradient(circle at center, #00c6ff22, transparent 60%);
+  animation: bgMove 12s infinite alternate;
+  z-index: -3;
+}
+
+@keyframes bgMove {
+  from { transform: scale(1); filter: hue-rotate(0deg); }
+  to { transform: scale(1.2); filter: hue-rotate(40deg); }
+}
+
+/* ✨ floating particles */
+.particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 8s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+
+/* header cinematic */
+header {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5em;
+  animation: fadeIn 2s ease;
+}
+
+.subtitle {
+  color: #ccc;
+  margin-top: 10px;
+  animation: fadeIn 3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* sections */
+.section {
+  max-width: 900px;
+  margin: 100px auto;
+  padding: 30px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  transform: translateY(50px);
+  opacity: 0;
+  animation: reveal 1.5s forwards;
+}
+
+@keyframes reveal {
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* gallery cinematic */
+.gallery {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.gallery img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  scroll-snap-align: center;
+  transition: transform 0.5s, filter 0.5s;
+  filter: brightness(0.7);
+}
+
+.gallery img:hover {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+/* button */
+button {
+  background: linear-gradient(135deg,#ff4d6d,#7b2ff7);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* 🎂 cake full screen */
+#cakeScreen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 80px;
+  animation: pop 0.8s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+/* MODAL FIXED */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+    z-index: 9999; /* 🔥 THIS FIX OVERLAP */
+
+}
+
+.modal-content {
+  background: #fff;
+  color: #000;
+  width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 25px;
+  border-radius: 15px;
+  transform: scale(0.7);
+  transition: 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+  color: red;
+}
+
+
+/* ❤️ hearts */
+.heart {
+  position: fixed;
+  font-size: 18px;
+  animation: rise 5s linear;
+}
+
+@keyframes rise {
+  to { transform: translateY(-120vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- particles -->
+<script>
+for(let i=0;i<25;i++){
+  let p=document.createElement("div");
+  p.className="particle";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(p);
+}
+</script>
+</style>
+</head>
+
+<body>
+
+
+
+<header class="fade">
+  <button onclick="document.getElementById('music').play()">▶ Play Music</button>
+  <h1>Happy Birthday, My Love ❤️</h1>
+  <div class="subtitle">A little world I built just for you</div>
+  <div class="heart">♥</div>
+</header>
+<!-- 🎵 music -->
+<audio id="music" loop>
+  <source src="Tum Ho Mera Pyar(KoshalWorld.Com).mp3" type="audio/mpeg">
+</audio>
+
+
+<div class="card fade">
+    <div class="lux-title">📸 My Feelings </div>
+<button class="open-btn" onclick="openLetter()" style="align-items: center;">💌 Open Love Letter</button>
+</div>
+<!-- LOVE LETTER -->
+
+
+<div class="modal" id="modal">
+   <div class="modal-content">
+
+    <span onclick="closeLetter()" style="cursor:pointer;float:right;color:red;">✖</span>
+  <div class="lux-title">💌 A Letter From My Heart</div>
+  <p>
+    You are not just someone I love — you are my calm, my peace, my favorite place.
+    Every moment with you feels like something I want to freeze forever.
+    We might not have any future together but the bond we created can be followed till we die the love cna be eternal..
+    You are not just someone I love… you are my calm in chaos, my silence in noise, aur meri har us tension ke beech wo sukoon ho jiska mujhe khud bhi pata nahi tha ki mujhe zarurat hai.
+ </p>
+<p>Tumhare saath har moment aisa lagta hai jaise main life ko pehli baar sahi tareeke se jee raha hoon. Tumhari har choti si baat, tumhari smile, tumhari awaaz — sab kuch mere andar ek ajeeb si warmth bhar deta hai. Kabhi kabhi lagta hai ki main bas in moments ko forever rok doon, taaki ye kabhi khatam hi na ho.
+
+Mujhe nahi pata kal hum saath honge ya nahi… shayad destiny humein alag raaste par le jaaye. Lekin jo bhi ho, jo main tumhare liye feel karta hoon wo temporary nahi hai. Ye ek aisa bond hai jo waqt ke saath kam nahi hota, balki aur gehra hota jaata hai.
+
+Mera pyar sirf emotions tak limited nahi hai… wo care mein bhi hai, actions mein bhi hai. Main chahta hoon ki main tumhari life ko thoda aasan bana sakun, har choti cheez mein.
+
+<p>Jab tum thak jao, main chahta hoon ki main tumhara stress kam kar sakun.
+Jab tum upset ho, main chahta hoon ki main tumhare saath chup chaap baith sakun.
+Jab tum apne low days se guzar rahi ho, main chahta hoon ki main tumhare saath rahun — bina kisi expectation ke, bas care ke saath.</p>
+
+Mujhw  tumhare kapde dhona accha lagta tha, tumhara dhyan rakhna chahta hoon, tumhe time par khana khilana chahta hoon, aur jab tum khud ka khayal nahi rakh pao, tab main wo sab karna chahta hoon jo ek apna insaan karta hai. Period days par extra care lena, tumhe comfort dena,tere pads change karne se nilhane tak  tumhari har choti zarurat ka khayal rakhna — ye sab mere liye burden nahi, balki pyaar hai.
+
+Main tumhare liye sirf “I love you” nahi banna chahta… main wo insaan banna chahta hoon jiske saath tum safe feel karo, jiske saath tum khud ko relax kar sako, jiske saamne tum apni har weakness bina dar ke dikha sako.
+
+Mera pyaar loud nahi hai… wo deep hai, silent hai, lekin consistent hai. Kabhi kabhi itna zyada feel hota hai ki shabd kam pad jaate hain.</p>
+
+Agar main tumse pyar karta hoon, toh wo sirf feelings nahi hai… wo responsibility hai, care hai, aur ek aisa emotional connection hai jo dil se dil tak jata hai.
+
+Chahe hum future mein saath ho ya na ho… lekin jo tumhare liye main feel karta hoon, wo hamesha sach rahega.
+Hamesha meri Hepatbai rehna mere se pyaar aur lagav kam mat karna teko jo pata ya tune suna dekha wo pura sach nhi tha jaan..bohot kuc haise hai jo main nhi bol sakta but mera pyaar jhuta nhi tha 
+
+Main kabhi tujhe tere papa ki kami nhi mehsus hone dungaa PAYALLL....
+ 
+</div>
+</div>
+
+
+<!-- INTERACTIVE LOVE BUTTONS -->
+<div class="card fade">
+  <div class="lux-title">💖 Open When You Need Me</div>
+
+  <button onclick="msg('I’m always here for you ❤️')">Feeling low</button>
+  <button onclick="msg('I miss you more ❤️')">Missing me</button>
+  <button onclick="msg('You are everything to me ❤️')">Need reassurance</button>
+</div>
+
+<!-- FINAL GIFT -->
+<div class="card fade">
+  <div class="lux-title">🎁 Surprise</div>
+  <button onclick="reveal()">Open Your Gift</button>
+
+  <div id="gift" style="display:none; margin-top:15px;">
+    <h2>🎉 Happy Birthday Baby 🎉</h2>
+    <p>You are my forever story. I love you endlessly ❤️</p>
+  </div>
+</div>
+
+<!-- LOVE GAME -->
+<div class="card fade">
+  <div class="lux-title">💘 Love Game</div>
+  <p>Be honest 😏 Do you love me?</p>
+
+  <button onclick="yesLove()">Yes ❤️</button>
+  <button id="noBtn" onmouseover="runAway()">No 😜</button>
+
+  <div id="loveResult" style="margin-top:15px;"></div>
+</div>
+
+<!-- LOVE GAME -->
+<div class="card fade">
+  <div class="lux-title">💘 Love Game</div>
+  <p>Be honest 😏 Hamesha meri hepatbai rehna aur meko dudu pilana ?</p>
+
+  <button onclick="yesLove()">Yes ❤️</button>
+  <button id="noBtn" onmouseover="runAway()">No 😜</button>
+
+  <div id="loveResult" style="margin-top:15px;"></div>
+</div>
+
+<div class="card fade">
+  <h2>🎁 Main Surprise</h2>
+  <button onclick="showCake()">Open</button>
+</div>
+<!-- 🎂 CAKE SCREEN -->
+<div id="cakeScreen" onclick="this.style.display='none'">
+  🎂🎉 HAPPY BIRTHDAY Hepatbai 🎉🎂
+
+
+<a href="personal3.html">
+  <button>HitMee 🎉🎉</button>
+</a>
+  <!-- <button onclick="showCake()"></button> -->
+</div>
+
+<footer>
+  Made with love ❤️
+</footer>
+
+<script>
+let modal = document.getElementById("modal");
+
+function openLetter() {
+  modal.style.display = "flex";
+  setTimeout(() => {
+    modal.classList.add("show");
+  }, 10);
+}
+
+function closeLetter() {
+  modal.classList.remove("show");
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 200);
+}
+/* love */
+function love(){
+  document.getElementById("msg").innerHTML="I knew it ❤️";
+  burst();
+}
+
+/* hearts */
+function burst(){
+  for(let i=0;i<50;i++){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    h.style.top="100vh";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+  }
+}
+function runAway(){
+  const btn = document.getElementById("runBtn");
+
+  const x = (Math.random() * 250 - 120);
+  const y = (Math.random() * 100 - 50);
+
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+  btn.style.transition = "0.15s ease";
+}
+
+  for(let i=0;i<25;i++){
+  let p=document.createElement("div");
+  p.className="particle";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(p);
+}
+  let i = 0;
+  const slides = document.getElementsByClassName("slide");
+  slides[0].style.display = "block";
+
+  function nextSlide() {
+    slides[i].style.display = "none";
+    i = (i + 1) % slides.length;
+    slides[i].style.display = "block";
+  }
+
+  /* cake */
+function showCake(){
+  document.getElementById("cakeScreen").style.display="flex";
+  burst();
+}
+
+  function msg(text) {
+    alert(text);
+  }
+
+  function reveal() {
+    document.getElementById("gift").style.display = "block";
+    confetti();
+  }
+
+  function confetti() {
+    for (let j = 0; j < 60; j++) {
+      let c = document.createElement("div");
+      c.innerHTML = "✨";
+      c.style.position = "fixed";
+      c.style.left = Math.random() * window.innerWidth + "px";
+      c.style.top = "-20px";
+      c.style.fontSize = "18px";
+      c.style.animation = "fall 3s linear forwards";
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 3000);
+    }
+  }
+
+  const style = document.createElement("style");
+  style.innerHTML = `
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+
+  function yesLove() {
+  document.getElementById("loveResult").innerHTML =
+    "Awwww ❤️ I knew it! I love you more 😘";
+
+  // mini celebration
+  heartRain();
+}
+
+function runAway() {
+  const btn = document.getElementById("noBtn");
+
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 50 - 25;
+
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+  btn.style.transition = "0.2s";
+}
+
+function heartRain() {
+  for (let i = 0; i < 40; i++) {
+    let h = document.createElement("div");
+    h.innerHTML = "❤️";
+    h.style.position = "fixed";
+    h.style.left = Math.random() * window.innerWidth + "px";
+    h.style.top = "-20px";
+    h.style.fontSize = "18px";
+    h.style.animation = "fall 3s linear forwards";
+    document.body.appendChild(h);
+
+    setTimeout(() => h.remove(), 3000);
+  }
+}
+</script>
+
+</body>
+</html>
