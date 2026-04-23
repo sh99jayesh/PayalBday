@@ -499,7 +499,7 @@ function runAway(){
   btn.style.transform = `translate(${x}px, ${y}px)`;
   btn.style.transition = "0.15s ease";
 }
-  function runAwayy(){
+function runAwayy(){
   const btn = document.getElementById("nooBtn");
 
   const x = (Math.random() * 250 - 120);
@@ -508,7 +508,6 @@ function runAway(){
   btn.style.transform = `translate(${x}px, ${y}px)`;
   btn.style.transition = "0.15s ease";
 }
-
 
   for(let i=0;i<25;i++){
   let p=document.createElement("div");
@@ -575,15 +574,15 @@ function showCake(){
   heartRain();
 }
 
-// function runAway() {
-//   const btn = document.getElementById("noBtn");
+function runAway() {
+  const btn = document.getElementById("noBtn");
 
-//   const x = Math.random() * 200 - 100;
-//   const y = Math.random() * 50 - 25;
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 50 - 25;
 
-//   btn.style.transform = `translate(${x}px, ${y}px)`;
-//   btn.style.transition = "0.2s";
-// }
+  btn.style.transform = `translate(${x}px, ${y}px)`;
+  btn.style.transition = "0.2s";
+}
 
 function heartRain() {
   for (let i = 0; i < 40; i++) {
